@@ -28,20 +28,20 @@ function App() {
   
   
   return (
-    <div className='h-screen  flex flex-col items-center'>
+    <div className='h-screen  flex flex-col items-center text-gray-700'>
 
-      <h1  className='mt-10 text-3xl' >Rick and Morty Search App</h1>
+      <h1  className='mt-10 text-3xl font-semibold' >Rick and Morty Search App</h1>
 
       <div>
 
       <input placeholder='Search' type='text' onChange={handleData} value={data}  
-      className='w-96 h-10 bg-indigo-100 rounded-l-lg  px-5 pr-10 text-sm my-12 focus:outline-none' />
+      className='w-96 h-10 bg-indigo-200 placeholder-slate-600 rounded-l-lg px-5 pr-10 text-sm my-12  focus: outline-none' />
 
-      <button onClick={handleSubmit} className='bg-[#5554d4] w-12 h-10 rounded-r-lg' >Add</button>
+      <button onClick={handleSubmit} className='bg-indigo-600 text-indigo-100 w-14 h-10 rounded-r-lg hover:bg-indigo-700'>Add</button>
 
       </div>
     
-    <div className='grid grid-cols-6 gap-6 pb-12'>
+    <div className='grid grid-cols-5 gap-8 pb-12'>
 
      {item.map( (i)=>{
        return <img key={i.id} src={i.image} alt="imagen" className='w-40 h-40 rounded-lg' />
