@@ -28,23 +28,23 @@ function App() {
   
   
   return (
-    <div className='h-screen max-h-full bg-indigo-200 flex flex-col items-center'>
+    <div className='h-screen  flex flex-col items-center'>
 
       <h1  className='mt-10 text-3xl' >Rick and Morty Search App</h1>
 
       <div>
 
       <input placeholder='Search' type='text' onChange={handleData} value={data}  
-      className="bg-[] w-96 rounded-l-lg my-10 h-10 px-5 pr-10 text-sm focus:outline-none" />
+      className='w-96 h-10 bg-indigo-100 rounded-l-lg  px-5 pr-10 text-sm my-12 focus:outline-none' />
 
       <button onClick={handleSubmit} className='bg-[#5554d4] w-12 h-10 rounded-r-lg' >Add</button>
 
       </div>
     
-    <div className='grid grid-cols-6 '>
+    <div className='grid grid-cols-6 gap-6 pb-12'>
 
      {item.map( (i)=>{
-       return <img key={i.id} src={i.image} alt="imagen" className='w-40 h-40' />
+       return <img key={i.id} src={i.image} alt="imagen" className='w-40 h-40 rounded-lg' />
      } )}
     
     </div>
