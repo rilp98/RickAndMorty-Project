@@ -28,7 +28,7 @@ function App() {
   
   
   return (
-    <div className='h-full bg-indigo-200 flex flex-col items-center'>
+    <div className='h-screen max-h-full bg-indigo-200 flex flex-col items-center'>
 
       <h1  className='mt-10 text-3xl' >Rick and Morty Search App</h1>
 
