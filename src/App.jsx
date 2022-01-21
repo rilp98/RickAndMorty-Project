@@ -4,7 +4,7 @@ import Cards from './Cards';
 
 function App() {
   const [item, setItem] = useState([]);
-  const [data,setData] = useState('rick');
+  const [data,setData] = useState(' ');
   const [darkMode,setDarkMode] = useState(false);
   
   const handleData = (e) =>{
@@ -65,10 +65,13 @@ function App() {
       </div>
 
 
-    <footer className='w-full h-800px bg-indigo-600' >
+    <footer className='w-full h-36 flex justify-center items-center bg-indigo-400 ' >
 
-    <p>Footer</p>
+    <a href='https://github.com/rilp98' target='_blank'  >Github</a>
+    <a href='https://github.com/rilp98' target='_blank' className='ml-10' >LinkenIn</a>
+    <a href='https://github.com/rilp98' target='_blank' className='ml-10' >Twitter</a>
     
+
     </footer>
 
     </div>
