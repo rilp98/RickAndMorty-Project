@@ -14,6 +14,10 @@ function App() {
     setData('');
   }
 
+  const handleDarkMode = ()=>{
+    document.documentElement.classList.toggle('dark');
+  }
+
   const fetchData = ()=>{
     fetch(`https://rickandmortyapi.com/api/character/?name=${data}`)
     .then(resp =>resp.json())
@@ -28,19 +32,24 @@ function App() {
   
   
   return (
-    <div className='h-screen  flex flex-col items-center text-gray-700'>
+    <div className='h-full flex flex-col items-center text-gray-700 dark:bg-zinc-900'>
 
-      <h1  className='mt-10 text-3xl font-semibold' >Rick and Morty Search App</h1>
+      <h1  className='mt-10 text-4xl font-semibold dark:text-indigo-200' >Rick and Morty Search App</h1>
 
       <div>
 
-      <input placeholder='Search' type='text' onChange={handleData} value={data}  
-      className='w-96 h-10 bg-indigo-200 placeholder-slate-600 rounded-l-lg px-5 pr-10 text-sm my-12  focus: outline-none' />
+      <input placeholder='Search a chapter' type='text' onChange={handleData} value={data}  
+      className='w-96 h-10 bg-indigo-200 placeholder-slate-600 rounded-l-lg px-5 pr-10 
+      text-sm my-12 focus: outline-none dark:bg-gray-700 dark:opacity-60 dark:text-indigo-200 '/>
 
-      <button onClick={handleSubmit} className='bg-indigo-600 text-indigo-100 w-14 h-10 rounded-r-lg hover:bg-indigo-700'>Add</button>
-
+      <button onClick={handleSubmit} className='bg-indigo-600 text-indigo-100 w-14 h-10 
+      rounded-r-lg hover:bg-indigo-700 '> Add </button>
+      
+      <button onClick={handleDarkMode} className='bg-indigo-600 dark:bg-emerald-800' >dark mode</button>
+      
       </div>
     
+
     <div className='grid grid-cols-5 gap-8 pb-12'>
 
      {item.map( (i)=>{
@@ -48,6 +57,10 @@ function App() {
      } )}
     
     </div>
+
+    <footer className='w-full h-800px bg-indigo-600' >
+    <p>Footer</p>
+    </footer>
 
     </div>
   )
