@@ -1,0 +1,16 @@
+.cardName{
+ display:none;
+}
+
+.containerCard:hover .cardName {
+  display: block;
+  border-radius:0 0 0.5rem 0.5rem;
+}
+
+.containerCard:hover{
+  transform: scale(1.15);
+}
+
+.containerCard:hover img{
+  opacity: 1;
+}
