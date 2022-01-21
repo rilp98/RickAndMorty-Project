@@ -1,8 +1,11 @@
-import { useState,useEffect} from 'react';
+import React,{ useState,useEffect} from 'react';
+
+import Cards from './Cards';
 
 function App() {
   const [item, setItem] = useState([]);
   const [data,setData] = useState('rick');
+  const [darkMode,setDarkMode] = useState(false);
   
   const handleData = (e) =>{
   setData(e.target.value);
@@ -16,7 +19,10 @@ function App() {
 
   const handleDarkMode = ()=>{
     document.documentElement.classList.toggle('dark');
+    setDarkMode(!darkMode);
   }
+  
+  const mode= darkMode ? 'Light Mode' : 'Dark Mode';
 
   const fetchData = ()=>{
     fetch(`https://rickandmortyapi.com/api/character/?name=${data}`)
@@ -29,8 +35,7 @@ function App() {
   useEffect( ()=>{
       fetchData();
    },[]);
-  
-  
+
   return (
     <div className='h-full flex flex-col items-center text-gray-700 dark:bg-slate-900'>
 
@@ -38,22 +43,25 @@ function App() {
 
       <div>
 
-      <input placeholder='Search a chapter' type='text' onChange={handleData} value={data}  
+      <input placeholder='Search a character' type='text' onChange={handleData} value={data}  
       className='w-96 h-10 bg-indigo-200 placeholder-slate-600 rounded-l-lg px-5 pr-10 
-      text-sm font-semibold my-12 focus: outline-none dark:bg-gray-700 dark:opacity-60 dark:text-indigo-200 '/>
+      text-sm font-semibold my-12 focus: outline-none dark:bg-gray-700 dark:opacity-50 dark:text-indigo-100 '/>
 
       <button onClick={handleSubmit} className='bg-indigo-600 text-indigo-100 w-14 h-10 
       rounded-r-lg hover:bg-indigo-700 '> Add </button>
       
       <button onClick={handleDarkMode} className=' w-24 h-10 ml-4 rounded-lg font-semibold
-      outline outline-offset-2 outline-indigo-900 text-indigo-900 dark:outline-indigo-200 dark:text-indigo-200' >Dark Mode</button>
+      outline outline-offset-2 outline-indigo-900 text-indigo-900 hover:translate-y-0.5 transfrom transition
+      dark:outline-indigo-200 dark:text-indigo-200'>{mode}</button>
       
       </div>
 
     <div className='grid grid-cols-5 gap-8 pb-12'>
 
      {item.map( (i)=>{
-       return <img key={i.id} src={i.image} alt="imagen" className='w-40 h-40 rounded-lg' />
+      return(
+       <Cards key={i.id} image={i.image} name={i.name} alt='imagen'/>
+     ) 
      } )}
     
     </div>
