@@ -1,6 +1,19 @@
 import React,{ useState,useEffect} from 'react';
 
-import Cards from './Cards';
+import Cards from './components/Cards';
+import Footer from './components/Footer';
+
+import githubIcon from './assets/icons/github.svg';
+import linkedInIcon from './assets/icons/linkedIn.svg';
+import twitterIcon from './assets/icons/twitter.svg';
+
+
+
+const ICONS_FOOTER=[
+  {name:'Github',icon:githubIcon, link:'https://github.com/rilp98'},
+  {name:'LinkedIn',icon:linkedInIcon, link:'https://www.linkedin.com/in/paola-anttonela-rossi-querales/'},
+  {name:'Twitter',icon:twitterIcon, link:'https://twitter.com/Paola94331726'}
+]
 
 function App() {
   const [item, setItem] = useState([]);
@@ -45,7 +58,8 @@ function App() {
 
       <input placeholder='Search a character' type='text' onChange={handleData} value={data}  
       className='w-96 h-10 bg-indigo-200 mt-12 placeholder-slate-600 rounded-l-lg px-5 pr-10 
-      text-sm font-semibold  focus: outline-none dark:bg-gray-700 dark:opacity-50 dark:text-indigo-100 '/>
+      text-sm font-semibold  focus: outline-none dark:bg-gray-700 dark:opacity-50 dark:text-indigo-100 
+      dark:placeholder-slate-400'/>
 
       <button onClick={handleSubmit} className='bg-indigo-600 text-indigo-100 w-14 h-10 
       rounded-r-lg hover:bg-indigo-700 '> Add </button>
@@ -67,10 +81,9 @@ function App() {
 
     <footer className='w-full h-36 flex justify-center items-center bg-indigo-400 ' >
 
-    <a href='https://github.com/rilp98' target='_blank'  >Github</a>
-    <a href='https://github.com/rilp98' target='_blank' className='ml-10' >LinkenIn</a>
-    <a href='https://github.com/rilp98' target='_blank' className='ml-10' >Twitter</a>
-    
+    {ICONS_FOOTER.map((iconFooter)=>{
+      return <Footer key={iconFooter.name} name={iconFooter.name} icon={iconFooter.icon} link={iconFooter.link} />
+    })}
 
     </footer>
 
