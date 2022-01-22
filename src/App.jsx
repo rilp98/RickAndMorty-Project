@@ -2,6 +2,7 @@ import React,{ useState,useEffect} from 'react';
 
 import Cards from './components/Cards';
 import Footer from './components/Footer';
+import { useFetch } from './hooks/useFetch';
 
 import githubIcon from './assets/icons/github.svg';
 import linkedInIcon from './assets/icons/linkedIn.svg';
@@ -16,13 +17,15 @@ const ICONS_FOOTER=[
 ]
 
 function App() {
-  const [item, setItem] = useState([]);
+  
   const [data,setData] = useState(' ');
   const [darkMode,setDarkMode] = useState(false);
   
   const handleData = (e) =>{
-  setData(e.target.value);
+    setData(e.target.value);
   }
+  
+  const {item,fetchData}=useFetch(data);
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -30,24 +33,16 @@ function App() {
     setData('');
   }
 
+  useEffect( ()=>{
+      fetchData(data);
+   },[]);
+
   const handleDarkMode = ()=>{
     document.documentElement.classList.toggle('dark');
     setDarkMode(!darkMode);
   }
   
   const mode= darkMode ? 'Light Mode' : 'Dark Mode';
-
-  const fetchData = ()=>{
-    fetch(`https://rickandmortyapi.com/api/character/?name=${data}`)
-    .then(resp =>resp.json())
-    .then((resp)=>{
-      setItem(resp.results);
-     })
-  }
-
-  useEffect( ()=>{
-      fetchData();
-   },[]);
 
   return (
     <div className='min-h-screen flex flex-col justify-between items-center text-gray-800 dark:bg-slate-900'>
