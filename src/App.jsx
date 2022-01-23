@@ -1,5 +1,6 @@
 import React,{ useState,useEffect} from 'react';
 
+import './App.css';
 import Cards from './components/Cards';
 import Footer from './components/Footer';
 import { useFetch } from './hooks/useFetch';
@@ -15,6 +16,7 @@ const ICONS_FOOTER=[
   {name:'LinkedIn',icon:linkedInIcon, link:'https://www.linkedin.com/in/paola-anttonela-rossi-querales/'},
   {name:'Twitter',icon:twitterIcon, link:'https://twitter.com/Paola94331726'}
 ]
+
 
 function App() {
   
@@ -45,14 +47,14 @@ function App() {
   const mode= darkMode ? 'Light Mode' : 'Dark Mode';
 
   return (
-    <div className='min-h-screen flex flex-col justify-between items-center text-gray-800 dark:bg-slate-900'>
+    <div className='min-h-screen flex flex-col justify-between items-center text-gray-800 dark:bg-slate-900 appContainer'>
 
-      <h1  className='mt-10 text-4xl font-semibold dark:text-indigo-200' >Rick and Morty Search App</h1>
+      <h1  className='my-12 text-4xl font-semibold dark:text-indigo-200' >Rick and Morty Search App</h1>
       
-      <main >
+      <main className='min-w-full flex justify-center items-center'>
 
       <input placeholder='Search a character' type='text' onChange={handleData} value={data}  
-      className='w-96 h-10 bg-indigo-200 mt-12 placeholder-slate-600 rounded-l-lg px-5 pr-10 
+      className='w-2/6 h-10 bg-indigo-200  placeholder-slate-600 rounded-l-lg px-5 pr-10 
       text-sm font-semibold  focus: outline-none dark:bg-gray-700 dark:opacity-50 dark:text-indigo-100 
       dark:placeholder-slate-400'/>
 
@@ -65,13 +67,13 @@ function App() {
     
       </main>
 
-     <div className='mt-12 grid grid-cols-5 gap-8 pb-12'>
+     <section className='mt-12 grid grid-cols-5 gap-8 pb-12 gridContainer'>
 
       {item.map( (i)=>{
         return <Cards key={i.id} image={i.image} name={i.name} alt='imagen'/> 
       } )}
       
-      </div>
+      </section>
 
 
     <footer className='w-full h-36 flex justify-center items-center bg-indigo-400 ' >

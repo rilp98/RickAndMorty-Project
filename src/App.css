@@ -1,0 +1,28 @@
+
+@media (min-width: 320px) and (max-width: 425px)  {
+  
+  h1 {
+   text-align: center;
+   margin:0 32px;
+  }
+
+  .appContainer {
+   width: 100%;
+  }
+
+  input {
+   width: 40%;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(2,1fr);
+  }
+    
+}
+
+@media (min-width: 540px) and (max-width: 1023px)  {
+  
+  .gridContainer {
+   grid-template-columns: repeat(3,1fr);
+  }    
+}
