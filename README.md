@@ -8,7 +8,7 @@ In this project I practiced useState, fetch items with an API, make a custom hoo
 
 ## URL
 
-##Lincense
+## Lincense
 
 MIT License
 
