@@ -51,10 +51,10 @@ function App() {
 
       <h1  className='my-12 text-4xl font-semibold dark:text-indigo-200' >Rick and Morty Search App</h1>
       
-      <main className='min-w-full flex justify-center items-center'>
+      <main className='min-w-full flex justify-center '>
 
       <input placeholder='Search a character' type='text' onChange={handleData} value={data}  
-      className='w-2/6 h-10 bg-indigo-200  placeholder-slate-600 rounded-l-lg px-5 pr-10 
+      className='w-2/6 h-10 bg-indigo-200  placeholder-slate-600 rounded-l-lg pl-5 pr-10 
       text-sm font-semibold  focus: outline-none dark:bg-gray-700 dark:opacity-50 dark:text-indigo-100 
       dark:placeholder-slate-400'/>
 
