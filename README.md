@@ -8,6 +8,8 @@ In this project I practiced useState, fetch items with an API, make a custom hoo
 
 ## URL
 
+https://rick-and-morty-project-portafolio.netlify.app
+
 ## Lincense
 
 MIT License
