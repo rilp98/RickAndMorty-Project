@@ -51,21 +51,21 @@ function App() {
 
             <h1  className='my-12 text-4xl font-semibold dark:text-indigo-200' >Rick and Morty Search App</h1>
       
-            <main className='min-w-full flex justify-center '>
+            <form onSubmit={handleSubmit} className='min-w-full flex justify-center '>
 
                 <input placeholder='Search a character' type='text' onChange={handleData} value={data}  
                     className='w-2/6 h-10 bg-indigo-200  placeholder-slate-600 rounded-l-lg pl-5 pr-10 
       text-sm font-semibold  focus: outline-none dark:bg-gray-700 dark:opacity-50 dark:text-indigo-100 
       dark:placeholder-slate-400'/>
 
-                <button onClick={handleSubmit} className='bg-indigo-600 text-indigo-100 w-14 h-10 
+                <button type='submit' className='bg-indigo-600 text-indigo-100 w-14 h-10 
       rounded-r-lg hover:bg-indigo-700 '> Add </button>
       
                 <button onClick={handleDarkMode} className=' w-24 h-10 ml-4 rounded-lg font-semibold
       outline outline-offset-2 outline-indigo-900 text-indigo-900 hover:translate-y-0.5 transfrom transition
       dark:outline-indigo-200 dark:text-indigo-200'>{mode}</button>
     
-            </main>
+            </form>
 
             <section className='mt-12 grid grid-cols-5 gap-8 pb-12 gridContainer'>
 
